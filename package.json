@@ -5,7 +5,7 @@
   "description": "Agent skills for real engineering (rc-skills, a fork of mattpocock/skills)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-github-owner/rc-skills"
+    "url": "https://github.com/shayanrc/rc-skills"
   },
   "license": "MIT",
   "scripts": {

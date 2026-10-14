@@ -2,34 +2,25 @@
 
 rc-skills is a fork of [mattpocock/skills](https://github.com/mattpocock/skills), prepared to be published to GitHub under its own name. Nothing is published yet: run this checklist first.
 
-## 1. Replace the placeholders
+## 1. Identity is filled in
 
-The fork's own identity uses two placeholders until the GitHub account is known:
-
-- `your-github-owner`: the GitHub account or organisation that will host the fork
-- `your-name`: the display name for the plugin author
-
-Find every remaining occurrence:
-
-```bash
-grep -rn 'your-github-owner\|your-name' --exclude-dir=.git .
-```
-
-Files that carry them: `package.json`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `harness/package.json`, `.agents/install-block.md`, `README.md`. Replace them all (a plain `sed` over those six files works, then eyeball the diff).
+The fork's own identity is set: `shayanrc` (GitHub account) and `Shayan Roychoudhury` (plugin author name), filled in `package.json`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `harness/package.json`, `.agents/install-block.md`, and `README.md`. If the fork ever moves to another GitHub account, find-and-replace those two values across those six files and re-run step 2.
 
 ## 2. Validate the manifests
 
 ```bash
+bash scripts/check.sh
+npm run check
 claude plugin validate . --strict
 npm run check-plugin-version
 ```
 
-Both must pass. `check-plugin-version` guards the `plugin.json` version, which the changeset Release workflow copies from `package.json`.
+All must pass. `scripts/check.sh` owns every mechanical rule (prose characters, JS syntax, the harness provider test, skills-index freshness, plugin validation); `check-plugin-version` guards the `plugin.json` version, which the changeset Release workflow copies from `package.json`.
 
 ## 3. Push the fork
 
 ```bash
-git remote add origin https://github.com/your-github-owner/rc-skills.git
+git remote add origin https://github.com/shayanrc/rc-skills.git
 git push -u origin deepseek-harness
 ```
 
@@ -39,12 +30,13 @@ git push -u origin deepseek-harness
 
 Because the fork publishes under its own name, these files intentionally diverge from upstream and will conflict on every upstream merge:
 
-- `package.json` and `package-lock.json` (name, description, repository URL)
+- `package.json` and `package-lock.json` (name, description, repository URL, the `check` script)
 - `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json` (plugin and marketplace identity)
 - `.agents/install-block.md` and the install blocks in `README.md` (fork install story)
-- `package.json` (the `check` script) and `scripts/` (guardrail checks, the pre-commit hook, and the hook installer) are fork-owned additions that may conflict on upstream merges
+- `CLAUDE.md` (which `AGENTS.md` symlinks to): the fork pointer line and the split prose rule; `CODING_STANDARDS.md` (new fork file)
+- `scripts/` (guardrail checks, the pre-commit hook, the hook installer) and `.github/workflows/check.yml` (new fork files)
 
-On merge conflicts, resolve toward the fork identity, then re-run step 2. Upstream skill content (`skills/`, `docs/`) stays verbatim except `skills/productivity/grilling/SKILL.md`, which carries a fork addition (user-paced rounds and revision handling) mirrored in `docs/productivity/grilling.md`. The upstream CHANGELOG, changesets, and issue history stay verbatim.
+On merge conflicts, resolve toward the fork identity, then re-run step 2. Upstream skill content (`skills/`, `docs/`) stays verbatim except: the grilling addition (`skills/productivity/grilling/SKILL.md`, mirrored in its docs page), and the mechanical en-dash rewrites committed in 8b6c62f (9 files). The upstream CHANGELOG, changesets, and issue history stay verbatim.
 
 ## 5. Optional follow-ups
 

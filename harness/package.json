@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-github-owner/rc-skills.git",
+    "url": "git+https://github.com/shayanrc/rc-skills.git",
     "directory": "harness"
   },
   "peerDependencies": {

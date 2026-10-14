@@ -1,8 +1,8 @@
 {
-  "name": "your-github-owner",
+  "name": "shayanrc",
   "owner": {
-    "name": "your-name",
-    "url": "https://github.com/your-github-owner"
+    "name": "Shayan Roychoudhury",
+    "url": "https://github.com/shayanrc"
   },
   "description": "rc-skills: skills for real engineering, as an installable Claude Code plugin (a fork of mattpocock/skills).",
   "plugins": [

@@ -6,13 +6,13 @@ One install story, one wording. `README.md`, `.changeset/*`, and every page unde
 
 Lead with installs that update themselves. Fall back to skills.sh, labelled "manual updates", only for agents that have no such install. Call a route managed only if it updates without the user running a command. Put any one-time opt-in beside its install command. Never promise "instant".
 
-rc-skills is a fork of mattpocock/skills, so it is not in `claude-plugins-official`. Every managed route installs from this repo's own marketplace (`.claude-plugin/marketplace.json` and `plugin.json`) under the marketplace name `your-github-owner`. Those routes reinstall only when the `version` in `plugin.json` changes. The Release workflow runs `npm run version`, which copies that field from `package.json`, so users get a release when the "chore: version skills" PR merges.
+rc-skills is a fork of mattpocock/skills, so it is not in `claude-plugins-official`. Every managed route installs from this repo's own marketplace (`.claude-plugin/marketplace.json` and `plugin.json`) under the marketplace name `shayanrc`. Those routes reinstall only when the `version` in `plugin.json` changes. The Release workflow runs `npm run version`, which copies that field from `package.json`, so users get a release when the "chore: version skills" PR merges.
 
 | Agent         | Route                            | Updates itself?                                                  |
 | ------------- | -------------------------------- | ---------------------------------------------------------------- |
-| Claude Code   | `@your-github-owner` marketplace | Yes, by default, after a one-time marketplace add               |
-| Codex         | `@your-github-owner` marketplace | Yes, at startup, by default                                      |
-| Copilot CLI   | `@your-github-owner` marketplace | Yes, after a one-time `autoUpdate: true`                         |
+| Claude Code   | `@shayanrc` marketplace | Yes, by default, after a one-time marketplace add               |
+| Codex         | `@shayanrc` marketplace | Yes, at startup, by default                                      |
+| Copilot CLI   | `@shayanrc` marketplace | Yes, after a one-time `autoUpdate: true`                         |
 | VS Code       | Chat: Install Plugin From Source | Yes, daily, by default                                           |
 | Gemini CLI    | `gemini skills install` (copies) | No. A Gemini extension would need a flat `skills/<name>/` layout |
 | DeepSeek Harness | `harness/install.mjs` (copies) | No. Re-run the installer after a pull (rc-skills fork)              |
@@ -27,8 +27,8 @@ Nobody has run Auggie, Droid, Qwen or Goose against this repo, so they stay on s
 <canonical-block name="claude-code">
 
 ```bash
-claude plugin marketplace add your-github-owner/rc-skills
-claude plugin install rc-skills@your-github-owner
+claude plugin marketplace add shayanrc/rc-skills
+claude plugin install rc-skills@shayanrc
 ```
 
 Updates itself by default.
@@ -40,8 +40,8 @@ Updates itself by default.
 <canonical-block name="codex">
 
 ```bash
-codex plugin marketplace add your-github-owner/rc-skills
-codex plugin add rc-skills@your-github-owner
+codex plugin marketplace add shayanrc/rc-skills
+codex plugin add rc-skills@shayanrc
 ```
 
 Updates itself at startup.
@@ -50,13 +50,13 @@ Updates itself at startup.
 
 ## GitHub Copilot (CLI and VS Code)
 
-Use the marketplace, not `copilot plugin install your-github-owner/rc-skills`. Copilot has deprecated direct repo installs, and they can't auto-update. The `extraKnownMarketplaces` entry follows the documented schema, but nobody has run it yet.
+Use the marketplace, not `copilot plugin install shayanrc/rc-skills`. Copilot has deprecated direct repo installs, and they can't auto-update. The `extraKnownMarketplaces` entry follows the documented schema, but nobody has run it yet.
 
 <canonical-block name="copilot">
 
 ```bash
-copilot plugin marketplace add your-github-owner/rc-skills
-copilot plugin install rc-skills@your-github-owner
+copilot plugin marketplace add shayanrc/rc-skills
+copilot plugin install rc-skills@shayanrc
 ```
 
 Then, once, add to `~/.copilot/settings.json`:
@@ -64,12 +64,12 @@ Then, once, add to `~/.copilot/settings.json`:
 ```json
 {
   "extraKnownMarketplaces": {
-    "your-github-owner": { "source": { "source": "github", "repo": "your-github-owner/rc-skills" }, "autoUpdate": true }
+    "shayanrc": { "source": { "source": "github", "repo": "shayanrc/rc-skills" }, "autoUpdate": true }
   }
 }
 ```
 
-In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.com/your-github-owner/rc-skills`. It updates daily.
+In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.com/shayanrc/rc-skills`. It updates daily.
 
 </canonical-block>
 
@@ -80,8 +80,8 @@ Gemini doesn't read `.claude-plugin`, and `--path` takes one bucket. One install
 <canonical-block name="gemini">
 
 ```bash
-gemini skills install https://github.com/your-github-owner/rc-skills.git --path skills/engineering
-gemini skills install https://github.com/your-github-owner/rc-skills.git --path skills/productivity
+gemini skills install https://github.com/shayanrc/rc-skills.git --path skills/engineering
+gemini skills install https://github.com/shayanrc/rc-skills.git --path skills/productivity
 ```
 
 Re-run both commands to update.
@@ -110,7 +110,7 @@ Re-run the same command after pulling new skills to refresh the installed copies
 <canonical-block name="other-agents">
 
 ```bash
-npx skills@latest add your-github-owner/rc-skills -a <agent>  # cursor, opencode, devin, windsurf, amp, pi; omit -a to choose
+npx skills@latest add shayanrc/rc-skills -a <agent>  # cursor, opencode, devin, windsurf, amp, pi; omit -a to choose
 ```
 
 When the installer asks which skills to take, include `setup-matt-pocock-skills`. To update, run `npx skills@latest update`, and re-run `add` to pick up new skills.
@@ -122,7 +122,7 @@ Use the single-skill form wherever one skill is named on its own. `docs/` pages 
 <canonical-block name="skills-sh-one-skill">
 
 ```bash
-npx skills@latest add your-github-owner/rc-skills --skill=<name>
+npx skills@latest add shayanrc/rc-skills --skill=<name>
 ```
 
 ```bash

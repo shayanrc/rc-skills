@@ -3,11 +3,11 @@
   "version": "1.3.1",
   "description": "Agent skills for real engineering (grilling, spec/ticket flows, TDD, code review, domain modelling and more). rc-skills is a fork of mattpocock/skills.",
   "author": {
-    "name": "your-name",
-    "url": "https://github.com/your-github-owner"
+    "name": "Shayan Roychoudhury",
+    "url": "https://github.com/shayanrc"
   },
-  "homepage": "https://github.com/your-github-owner/rc-skills",
-  "repository": "https://github.com/your-github-owner/rc-skills",
+  "homepage": "https://github.com/shayanrc/rc-skills",
+  "repository": "https://github.com/shayanrc/rc-skills",
   "license": "MIT",
   "keywords": [
     "engineering",
