@@ -22,12 +22,12 @@ apply({ skills: mockRegistry });
 assert.ok(captured, "plugin must register a provider");
 assert.equal(captured.name, "rc-skills");
 
-// list(): 38 candidates, each honoring the registry's candidate contract.
+// list(): 39 candidates, each honoring the registry's candidate contract.
 const candidates = await captured.list({});
-assert.equal(candidates.length, 38, "expected all 38 upstream skills");
+assert.equal(candidates.length, 39, "expected all 39 skills");
 
 const names = new Set(candidates.map((c) => c.name));
-assert.equal(names.size, 38, "skill names must be unique");
+assert.equal(names.size, 39, "skill names must be unique");
 assert.ok(names.has("tdd") && names.has("grilling") && names.has("loop-me"), "spot-check known skills");
 
 for (const c of candidates) {
@@ -59,8 +59,8 @@ for (const c of candidates) {
 	assert.equal(def.content, def.content.trim(), `body for ${c.name} should be trimmed`);
 	assert.equal(def.resourceBase.kind, "directory");
 }
-assert.equal(modelInvocable, 15, "15 upstream skills are model-invocable");
-assert.equal(userOnly, 23, "23 upstream skills are user-invoked only");
+assert.equal(modelInvocable, 16, "16 skills are model-invocable");
+assert.equal(userOnly, 23, "23 skills are user-invoked only");
 
 // get() on a missing skill returns undefined (candidate locator points nowhere).
 const ghost = await captured.get({

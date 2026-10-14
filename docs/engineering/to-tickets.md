@@ -45,7 +45,7 @@ The edges live in the ticket either way. The tracker only decides whether anythi
 
 One shape breaks the tracer-bullet rule. A **wide refactor** is a single mechanical change (rename a column, retype a shared symbol) whose **blast radius** covers the whole codebase. One edit breaks thousands of call sites, so no vertical slice can land green.
 
-`to-tickets` sequences that as **expand–contract** instead:
+`to-tickets` sequences that as **expand then contract** instead:
 
 - **Expand**: add the new form beside the old, so nothing breaks.
 - **Migrate**: move call sites over in batches sized by blast radius (per package, per directory), one ticket per batch, each blocked by the expand. CI stays green because the old form still exists.
