@@ -1,0 +1,47 @@
+{
+  "graph": {
+    "rankdir": "TB",
+    "label_fontsize": 20,
+    "node_fontsize": 14,
+    "edge_fontsize": 12,
+    "cluster_fontsize": 14,
+    "cluster_style": "rounded"
+  },
+  "nodes": {
+    "default": { "shape": "box", "fill": "#ffffff", "stroke": "#333333", "outline": "solid" },
+    "actionable": { "shape": "box", "fill": "#a4e9a4", "stroke": "#333333", "outline": "solid" },
+    "in-flight": { "shape": "box", "fill": "#a3c8e8", "stroke": "#333333", "outline": "solid" },
+    "goal": { "shape": "octagon", "fill": "#ffd966", "stroke": "#333333", "outline": "solid" },
+    "pending": { "shape": "box", "fill": "#ffffff", "stroke": "#333333", "outline": "dashed" },
+    "done": { "shape": "box", "fill": "#cccccc", "stroke": "#333333", "outline": "solid" },
+    "recurring": { "shape": "box", "fill": "#a3c8e8", "stroke": "#333333", "outline": "dotted" },
+    "blocked": { "shape": "box", "fill": "#dcb3b3", "stroke": "#333333", "outline": "solid" }
+  },
+  "edges": {
+    "hard": { "style": "solid", "color": "#666666" },
+    "soft": { "style": "dashed", "color": "#666666" },
+    "supervision": { "style": "dotted", "color": "#666666" }
+  },
+  "legend": {
+    "title": "Legend",
+    "background": "#eeeeee",
+    "edge_heading": "Edges",
+    "nodes": [
+      { "color": "#a4e9a4", "text": "actionable, ready to start" },
+      { "color": "#a3c8e8", "text": "in-flight" },
+      { "color": "#ffd966", "text": "goal" },
+      { "color": "#ffffff", "text": "pending, gated on a hard dependency" },
+      { "color": "#cccccc", "text": "done, kept for context" },
+      { "color": "#a3c8e8", "text": "recurring, paused between firings" },
+      { "color": "#dcb3b3", "text": "blocked on external state" }
+    ],
+    "edges": [
+      { "style": "solid", "text": "hard dependency" },
+      { "style": "dashed", "text": "soft dependency / may obviate" },
+      { "style": "dotted", "text": "recurring supervision" }
+    ]
+  },
+  "dot": {
+    "anchor_weight": 100
+  }
+}
