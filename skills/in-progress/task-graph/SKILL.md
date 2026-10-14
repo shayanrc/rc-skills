@@ -46,7 +46,7 @@ The edge kind rides the arrow form; the label carries the meaning in words.
 - `-.->` soft dependency, "surfaced by", or "may obviate".
 - `==>` recurring supervision: a loop or monitor watching a goal.
 
-Label edges (`|blocks|` or `-- blocks -->`) so the meaning stays readable without a legend lookup.
+Label edges (`|blocks|`, `-- blocks -->`, or `==>|supervises|` for a recurring edge) so the meaning stays readable without a legend lookup.
 
 ## House style
 

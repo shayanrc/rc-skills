@@ -13,7 +13,7 @@
 [![skills.sh](https://skills.sh/b/your-github-owner/rc-skills)](https://skills.sh/your-github-owner/rc-skills)
 
 > **rc-skills is a fork of [mattpocock/skills](https://github.com/mattpocock/skills) by Matt Pocock, adapted for the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness).**
-> Upstream content is preserved verbatim; the additions live in [`harness/`](./harness/README.md) and in the DeepSeek Harness install block below. Fork branch: `deepseek-harness`.
+> Upstream content is preserved apart from one documented grilling addition (see [PUBLISHING.md](./PUBLISHING.md)); the fork's additions live in [`harness/`](./harness/README.md) and in the DeepSeek Harness install block below. Fork branch: `deepseek-harness`.
 
 My agent skills that I use every day to do real engineering - not vibe coding.
 

@@ -43,7 +43,7 @@ Because the fork publishes under its own name, these files intentionally diverge
 - `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json` (plugin and marketplace identity)
 - `.agents/install-block.md` and the install blocks in `README.md` (fork install story)
 
-On merge conflicts, resolve toward the fork identity, then re-run step 2. Upstream skill content (`skills/`, `docs/`), the upstream CHANGELOG, changesets, and issue history stay verbatim.
+On merge conflicts, resolve toward the fork identity, then re-run step 2. Upstream skill content (`skills/`, `docs/`) stays verbatim except `skills/productivity/grilling/SKILL.md`, which carries a fork addition (user-paced rounds and revision handling) mirrored in `docs/productivity/grilling.md`. The upstream CHANGELOG, changesets, and issue history stay verbatim.
 
 ## 5. Optional follow-ups
 

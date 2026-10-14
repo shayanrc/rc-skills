@@ -49,7 +49,7 @@ Yes, and a large part of the audience does. Add this to your global `CLAUDE.md`:
 When grilling, ask one question at a time.
 ```
 
-Not everyone prefers the round-based default. Users who read slowly, who work in a second language, or who use the sequential format to help them focus report that one question at a time works better for them. The opt-out is a supported setting, not a workaround.
+Not everyone prefers the round-based default. Users who read slowly, who work in a second language, or who use the sequential format to help them focus report that one question at a time works better for them. The opt-out is a supported setting, not a workaround. You can also ask for it inside a session ("one at a time", or "give me options with pros and cons"); the agent honors the request for that session only.
 
 **Where did `/batch-grill-me` go?**
 Into this skill. Round-based questioning shipped briefly as a separate skill, then moved into `grilling` itself, so everything built on the primitive (`grill-me`, `grill-with-docs`, `triage`, `wayfinder`) got it at once. There is no `batch-grill-me` to install, and no separate sequential skill either; the `CLAUDE.md` line above is the way back to one-at-a-time.
