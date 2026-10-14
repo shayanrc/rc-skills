@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Pre-commit hook: run the repo guardrail checks and abort the commit on
+# failure. Installed by scripts/install-hooks.sh, which points
+# core.hooksPath at scripts/hooks.
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null)"
+if [ -z "$repo_root" ]; then
+  repo_root="$(cd "$(dirname "$0")/../.." && pwd)"
+fi
+exec "$repo_root/scripts/check.sh"

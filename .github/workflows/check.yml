@@ -1,0 +1,19 @@
+name: Check
+
+on:
+  push:
+    branches: [main, deepseek-harness]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run guardrail checks
+        run: bash scripts/check.sh

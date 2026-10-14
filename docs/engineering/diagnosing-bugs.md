@@ -48,7 +48,7 @@ The phases are gates, not a checklist. The agent cannot enter a phase until a sp
 | --- | --- |
 | Into Phase 2 | A named command, already run and pasted with its output, that can go red on this bug |
 | Into Phase 3 | The repro is reproduced *and* minimised: every remaining element is needed to reproduce the bug |
-| Into Phase 4 | 3–5 ranked, falsifiable hypotheses exist, each stating its prediction, shown to you before any is tested |
+| Into Phase 4 | 3 to 5 ranked, falsifiable hypotheses exist, each stating its prediction, shown to you before any is tested |
 | Into Phase 5 | Probes map to a specific prediction, one variable at a time, every debug log has a tag like `[DEBUG-a4f2]`, so one grep finds them all for cleanup |
 | Done | The original repro no longer reproduces, the instrumentation is gone, and the commit message names the hypothesis that turned out correct |
 
@@ -66,7 +66,7 @@ No. It diagnoses one failure you can already name. Its performance branch is for
 No. Only Phase 3 has a human checkpoint: the ranked hypothesis list is shown to you before any is tested, and the agent continues with its own ranking if you are away. There is no gate between instrumentation and the fix, so the agent can start writing code before you have agreed with its root cause. [Issue #124](https://github.com/mattpocock/skills/issues/124) asks for that gate and is still open. If you want it, say so when you invoke the skill.
 
 **I already ran `/triage` on this bug report. Is this the same work again?**
-Partly, and neither skill says so. As one reader put it: "Triage's step 3 is essentially a shallow, bounded instance of diagnosing-bugs Phase 1–2, but neither file mentions the other." Triage does a bounded "is this actually a bug, and what is the surface" pass; this skill does the thorough version. Running triage first is not wasted, because its verification often gives you most of Phase 1's raw material. But expect this skill to redo that work in full, and expect no cross-reference to tell you so.
+Partly, and neither skill says so. As one reader put it: "Triage's step 3 is essentially a shallow, bounded instance of diagnosing-bugs Phases 1 and 2, but neither file mentions the other." Triage does a bounded "is this actually a bug, and what is the surface" pass; this skill does the thorough version. Running triage first is not wasted, because its verification often gives you most of Phase 1's raw material. But expect this skill to redo that work in full, and expect no cross-reference to tell you so.
 
 **Will the repro output it pastes leak secrets?**
 It might. The skill asks the agent to paste the invocation and its output, and to request artifacts like HAR files, log dumps, and core dumps. No instruction tells the agent to sanitise them. [Issue #674](https://github.com/mattpocock/skills/issues/674) raises exactly this (credentials, tokens, cookies, and personal data copied into a chat, an issue, or a PR) and proposes a redaction guardrail. It is open and unimplemented. Treat redaction as your job for now, particularly before the output goes anywhere public.
@@ -82,7 +82,7 @@ v1.0.0 renamed it to `/diagnosing-bugs`. The old name no longer exists. Anything
 - It shows you a command and its red output before it offers a single theory. If theory arrives first, the skill is not running.
 - The failure it reproduces is the one you reported, not a nearby one it found on the way.
 - It shrinks the repro before it starts guessing, and can tell you why it needs each remaining piece.
-- It shows you a ranked list of 3–5 hypotheses, each with a prediction you could falsify, before it tests any of them.
+- It shows you a ranked list of 3 to 5 hypotheses, each with a prediction you could falsify, before it tests any of them.
 - Every debug log it adds carries a tag like `[DEBUG-a4f2]`, and a grep for that tag comes back empty when it declares done.
 - The commit or PR message names which hypothesis was right.
 - When it cannot lock the bug down with a test, it says so instead of writing a shallow one.
