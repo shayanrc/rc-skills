@@ -10,7 +10,7 @@
 
 # Skills For Real Engineers
 
-[![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
+[![skills.sh](https://skills.sh/b/your-github-owner/rc-skills)](https://skills.sh/your-github-owner/rc-skills)
 
 > **rc-skills is a fork of [mattpocock/skills](https://github.com/mattpocock/skills) by Matt Pocock, adapted for the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness).**
 > Upstream content is preserved verbatim; the additions live in [`harness/`](./harness/README.md) and in the DeepSeek Harness install block below. Fork branch: `deepseek-harness`.
@@ -27,7 +27,7 @@ If you want to keep up with changes to these skills, and any new ones I create, 
 
 ## Installation (30-second setup)
 
-A plugin updates itself. [skills.sh](https://skills.sh/mattpocock/skills) copies editable files into your project, and you update them by hand. Pick one per agent, because installing both gives you every skill twice.
+A plugin updates itself. [skills.sh](https://skills.sh/your-github-owner/rc-skills) copies editable files into your project, and you update them by hand. Pick one per agent, because installing both gives you every skill twice.
 
 ### 1. Get the skills
 
@@ -35,7 +35,8 @@ A plugin updates itself. [skills.sh](https://skills.sh/mattpocock/skills) copies
 <summary><strong>Claude Code</strong></summary>
 
 ```bash
-claude plugin install mattpocock-skills@claude-plugins-official
+claude plugin marketplace add your-github-owner/rc-skills
+claude plugin install rc-skills@your-github-owner
 ```
 
 Updates itself by default.
@@ -46,8 +47,8 @@ Updates itself by default.
 <summary><strong>Codex</strong></summary>
 
 ```bash
-codex plugin marketplace add mattpocock/skills
-codex plugin add mattpocock-skills@mattpocock
+codex plugin marketplace add your-github-owner/rc-skills
+codex plugin add rc-skills@your-github-owner
 ```
 
 Updates itself at startup.
@@ -58,8 +59,8 @@ Updates itself at startup.
 <summary><strong>GitHub Copilot</strong> (CLI and VS Code)</summary>
 
 ```bash
-copilot plugin marketplace add mattpocock/skills
-copilot plugin install mattpocock-skills@mattpocock
+copilot plugin marketplace add your-github-owner/rc-skills
+copilot plugin install rc-skills@your-github-owner
 ```
 
 Then, once, add to `~/.copilot/settings.json`:
@@ -67,12 +68,12 @@ Then, once, add to `~/.copilot/settings.json`:
 ```json
 {
   "extraKnownMarketplaces": {
-    "mattpocock": { "source": { "source": "github", "repo": "mattpocock/skills" }, "autoUpdate": true }
+    "your-github-owner": { "source": { "source": "github", "repo": "your-github-owner/rc-skills" }, "autoUpdate": true }
   }
 }
 ```
 
-In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.com/mattpocock/skills`. It updates daily.
+In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.com/your-github-owner/rc-skills`. It updates daily.
 
 </details>
 
@@ -80,8 +81,8 @@ In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.c
 <summary><strong>Gemini CLI</strong> (manual updates)</summary>
 
 ```bash
-gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering
-gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity
+gemini skills install https://github.com/your-github-owner/rc-skills.git --path skills/engineering
+gemini skills install https://github.com/your-github-owner/rc-skills.git --path skills/productivity
 ```
 
 Re-run both commands to update.
@@ -104,7 +105,7 @@ Re-run the same command after pulling new skills to refresh the installed copies
 <summary><strong>Any other agent, or editable files</strong> (manual updates)</summary>
 
 ```bash
-npx skills@latest add mattpocock/skills -a <agent>  # cursor, opencode, devin, windsurf, amp, pi; omit -a to choose
+npx skills@latest add your-github-owner/rc-skills -a <agent>  # cursor, opencode, devin, windsurf, amp, pi; omit -a to choose
 ```
 
 When the installer asks which skills to take, include `setup-matt-pocock-skills`. To update, run `npx skills@latest update`, and re-run `add` to pick up new skills.
