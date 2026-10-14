@@ -1,7 +1,8 @@
 /**
- * dsh-skill-mattpocock, a DeepSeek Harness skill plugin. Lives in
- * `harness/` of this fork of mattpocock/skills and registers a
- * same-process skill provider that serves every SKILL.md under `skills/`.
+ * rc-skills, a DeepSeek Harness skill plugin. rc-skills is a fork of
+ * mattpocock/skills by Matt Pocock (https://github.com/mattpocock/skills);
+ * this plugin lives in `harness/` of the fork and registers a same-process
+ * skill provider that serves every SKILL.md under `skills/`.
  * The registry contract is the one defined by `@deepseek-ai/dsh-skill`:
  *
  *   - `list(options)`  -> candidate summaries (name/description/invocation/...)
@@ -21,11 +22,11 @@ import { readFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-export const name = "skill-mattpocock";
+export const name = "skill-rc-skills";
 export const inject = ["skills"];
 
 /** Where candidates come from, as reported in the skill catalog. */
-export const PLUGIN_SOURCE = "plugin-mattpocock";
+export const PLUGIN_SOURCE = "plugin-rc-skills";
 /**
  * Precedence: above user-level skill roots (400/500) and bundled skills (600),
  * below project roots (100/200) and configured custom dirs (300).
@@ -34,8 +35,8 @@ export const PLUGIN_RANK = 350;
 
 const libDir = dirname(fileURLToPath(import.meta.url));
 const forkRoot = resolve(libDir, "..", "..");
-const skillsRoot = resolve(process.env.DSH_MATT_POCOCK_SKILLS_DIR ?? join(forkRoot, "skills"));
-const indexFile = resolve(process.env.DSH_MATT_POCOCK_SKILLS_INDEX ?? join(libDir, "..", "skills-index.json"));
+const skillsRoot = resolve(process.env.DSH_RC_SKILLS_DIR ?? join(forkRoot, "skills"));
+const indexFile = resolve(process.env.DSH_RC_SKILLS_INDEX ?? join(libDir, "..", "skills-index.json"));
 
 /** Load and index the shipped skill catalog once per provider lifetime. */
 async function loadIndex() {
@@ -47,11 +48,11 @@ async function loadIndex() {
 
 /** Register the provider on the host's skill registry. */
 export function apply(ctx) {
-	ctx.skills.registerProvider((control) => new MattPocockSkillProvider(ctx, control));
+	ctx.skills.registerProvider((control) => new RcSkillsSkillProvider(ctx, control));
 }
 
-class MattPocockSkillProvider {
-	name = "mattpocock";
+class RcSkillsSkillProvider {
+	name = "rc-skills";
 	#control;
 	#indexPromise;
 	#index;

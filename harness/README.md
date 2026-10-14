@@ -1,4 +1,8 @@
-# DeepSeek Harness (dsh) support
+# rc-skills: DeepSeek Harness (dsh) support
+
+rc-skills is a fork of mattpocock/skills by Matt Pocock
+(https://github.com/mattpocock/skills). All upstream skills are preserved
+verbatim; this fork adds the DeepSeek Harness integration in this directory.
 
 This directory adapts the fork to the DeepSeek Harness. It ships every skill
 in `../skills` (all 38, in their upstream buckets) through two mechanisms:

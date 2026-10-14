@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * dsh-skill-mattpocock installer. Lives in `harness/` of this fork of
- * mattpocock/skills; the skill sources are the fork's own `skills/` tree.
+ * rc-skills installer. Lives in `harness/` of the rc-skills fork of
+ * mattpocock/skills (https://github.com/mattpocock/skills); the skill
+ * sources are the fork's own `skills/` tree.
  *
  * Two jobs:
  *   1. Rebuild `skills-index.json` from the `skills/` SKILL.md files.
@@ -20,7 +21,7 @@ import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const forkRoot = resolve(process.env.DSH_MATT_POCOCK_SKILLS_SRC ?? join(here, ".."));
+const forkRoot = resolve(process.env.DSH_RC_SKILLS_SRC ?? join(here, ".."));
 const skillsRoot = join(forkRoot, "skills");
 const indexFile = join(here, "skills-index.json");
 

@@ -1,6 +1,6 @@
 {
-  "name": "dsh-skill-mattpocock",
-  "description": "DeepSeek Harness skill plugin, shipped in harness/ of the deepseek fork of mattpocock/skills",
+  "name": "rc-skills",
+  "description": "DeepSeek Harness skill plugin for rc-skills, a fork of mattpocock/skills",
   "version": "1.0.0",
   "type": "module",
   "main": "lib/index.js",

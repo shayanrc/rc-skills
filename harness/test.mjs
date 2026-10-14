@@ -20,7 +20,7 @@ const mockRegistry = {
 apply({ skills: mockRegistry });
 
 assert.ok(captured, "plugin must register a provider");
-assert.equal(captured.name, "mattpocock");
+assert.equal(captured.name, "rc-skills");
 
 // list(): 38 candidates, each honoring the registry's candidate contract.
 const candidates = await captured.list({});

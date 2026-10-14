@@ -15,7 +15,7 @@ Claude Code installs from its official marketplace, `claude-plugins-official`. E
 | Copilot CLI   | `@mattpocock` marketplace        | Yes, after a one-time `autoUpdate: true`                         |
 | VS Code       | Chat: Install Plugin From Source | Yes, daily, by default                                           |
 | Gemini CLI    | `gemini skills install` (copies) | No. A Gemini extension would need a flat `skills/<name>/` layout |
-| DeepSeek Harness | `harness/install.mjs` (copies) | No. Re-run the installer after a pull (this fork)              |
+| DeepSeek Harness | `harness/install.mjs` (copies) | No. Re-run the installer after a pull (rc-skills fork)              |
 | Everyone else | skills.sh                        | No. Run `npx skills update`, and re-run `add` for new skills     |
 
 Sources (2026-10-08): Codex `core-plugins/src/manager.rs`; Copilot [cli-config-dir-reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference); VS Code `pluginAutoUpdate.ts`; Gemini `skillLoader.ts`.
@@ -89,7 +89,7 @@ Re-run both commands to update.
 
 ## DeepSeek Harness (dsh)
 
-This route ships with the fork's `harness/` directory. It installs every bucket, including `misc/` and `in-progress/`, into the harness's filesystem skill roots (`<project>/.dsh/skills`, or `~/.dsh/skills` with `--user`). Run it from your project, not from inside this repo.
+This route ships with the rc-skills fork's `harness/` directory. It installs every bucket, including `misc/` and `in-progress/`, into the harness's filesystem skill roots (`<project>/.dsh/skills`, or `~/.dsh/skills` with `--user`). Run it from your project, not from inside this repo.
 
 <canonical-block name="dsh">
 
