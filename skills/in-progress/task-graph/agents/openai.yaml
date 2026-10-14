@@ -1,0 +1,3 @@
+interface:
+  display_name: "Task Graph"
+  short_description: "Pending-task dependency graph (mermaid)"
