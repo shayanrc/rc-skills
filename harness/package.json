@@ -1,0 +1,28 @@
+{
+  "name": "dsh-skill-mattpocock",
+  "description": "DeepSeek Harness skill plugin, shipped in harness/ of the deepseek fork of mattpocock/skills",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "skills-index.json"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattpocock/skills.git",
+    "directory": "harness"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-skill": "*"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

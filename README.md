@@ -12,6 +12,9 @@
 
 [![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
 
+> **This is a fork of [mattpocock/skills](https://github.com/mattpocock/skills), adapted for the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness).**
+> Upstream content is preserved verbatim; the additions live in [`harness/`](./harness/README.md) and in the DeepSeek Harness install block below. Fork branch: `deepseek-harness`.
+
 My agent skills that I use every day to do real engineering - not vibe coding.
 
 Developing real applications is hard. Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve.
@@ -82,6 +85,18 @@ gemini skills install https://github.com/mattpocock/skills.git --path skills/pro
 ```
 
 Re-run both commands to update.
+
+</details>
+
+<details>
+<summary><strong>DeepSeek Harness (dsh)</strong> (this fork, manual updates)</summary>
+
+```bash
+node harness/install.mjs        # into <project>/.dsh/skills
+node harness/install.mjs --user # or into ~/.dsh/skills, user-wide
+```
+
+Re-run the same command after pulling new skills to refresh the installed copies. See [`harness/README.md`](./harness/README.md).
 
 </details>
 
